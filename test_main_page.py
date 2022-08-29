@@ -1,15 +1,12 @@
 from selenium.webdriver.common.by import By
-
+from .pages.main_page import MainPage
 import time
 
-link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
 
-
-def test_check_add_to_basket_button_on_the_page(browser):
-    browser.get(link)
-    time.sleep(5)
-    button = browser.find_elements(By.XPATH, '//*[@id="add_to_basket_form"]/button')
-    assert len(button) > 0, "Button to add to basket is absent"
-
+def test_guest_can_go_to_login_page(browser):
+    link = "http://selenium1py.pythonanywhere.com/"
+    page = MainPage(browser, link)
+    page.open()
+    page.go_to_login_page()
 
 #pytest -v --tb=line --language=en test_main_page.py
