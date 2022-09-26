@@ -74,4 +74,4 @@ class BasePage:
         password_field.send_keys(password)
         re_password_field.send_keys(password)
         sign_in_btn.click()
-        
+
